@@ -1,10 +1,8 @@
-fetch('https://dog.ceo/api/breeds/image/random')
-    .then(data => data.json())
-    .then(memeData => {
-        console.log(memeData)
+ const tag = document.getElementById('tag');
+ let fetchRes = fetch("https://v2.jokeapi.dev/joke/Programming,Pun,Spooky");
+    fetchRes.then(res =>
+    res.json()).then(d => {
+        console.log(d)
         
-        const memeImg = document.getElementById('img_load')
-
-        memeImg.src = memeData.message
+        tag.innerHTML = d.joke;
     })
-    .catch(err=>console.log(err))
